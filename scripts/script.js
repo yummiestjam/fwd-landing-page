@@ -15,13 +15,22 @@ document.addEventListener('scroll', function(){
     // https://css-tricks.com/working-with-javascript-media-queries/
     if (!mediaQuery.matches)
     {
+        // if mobile, set opacity to this value based on scrollPos
         cat.style.opacity = 1 - scrollPos / 100;
     }
-    else // if it IS non-mobile width...
+})
+
+// to fix edge cases where the user resizes the window,
+// we update the opacity on resize too.
+window.addEventListener("resize", function(){
+    if (mediaQuery.matches)
     {
-        // reset to visible!
+        // reset to fully visible if non-mobile
         cat.style.opacity = 1;
-        // solves edge case of changing from a scrolled mobile view (hiding cat)
-        // to a desktop view, where the cat should not have been faded out
+    }
+    else
+    {
+        // if mobile, set opacity to this value based on scrollPos
+        cat.style.opacity = 1 - scrollPos / 100;
     }
 })

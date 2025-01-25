@@ -119,7 +119,7 @@ a:active {
 }
 
 .site-title {
-    padding: 16rem 0 4rem 0;
+    padding: 18rem 0 2rem 0;
     margin: 0;
 }
 
@@ -182,7 +182,7 @@ nav a {
     }
 
     nav a {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
 
@@ -195,6 +195,13 @@ nav a {
     position: fixed;
     width: 18rem;
     z-index: -2;
+
+    /*
+    center a fixed element responsively
+    https://stackoverflow.com/questions/2005954/center-a-positionfixed-element
+    */
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .project-links {
@@ -273,7 +280,7 @@ nav a {
     }
 
     .site-title {
-        padding: 4rem 0 4rem 0;
+        padding: 4rem 0 2rem 0;
         margin: 0;
         order: 1;
     }
