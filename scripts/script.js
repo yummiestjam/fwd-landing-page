@@ -5,6 +5,9 @@ const cat = document.getElementById('cat-picture');
 // query: is non-mobile size?
 const mediaQuery = window.matchMedia('(min-width: 50em)');
 
+// initialize scrollPos
+let scrollPos = 0;
+
 document.addEventListener('scroll', function(){
 
     // get scroll position of page
@@ -23,6 +26,10 @@ document.addEventListener('scroll', function(){
 // to fix edge cases where the user resizes the window,
 // we update the opacity on resize too.
 window.addEventListener("resize", function(){
+
+    // set scrollPos value in case resize is done first
+    scrollPos = window.scrollY;
+
     if (mediaQuery.matches)
     {
         // reset to fully visible if non-mobile
