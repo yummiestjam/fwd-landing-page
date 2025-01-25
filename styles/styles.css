@@ -165,13 +165,14 @@ nav a {
 }
 
 .projects article {
+    flex: 0 1 12rem;
     position: relative;
+    height: fit-content;
 }
 
 .projects article img {
-    background-color: white;
-    height: 12rem;
-    width: 18rem;
+    /* height: 12rem;
+    width: 18rem; */
     padding: 0;
 }
 
@@ -182,14 +183,14 @@ nav a {
     );
     content: '';
     position:absolute;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 1;
 
     /* match width of article img */
-    max-width: 18rem;
+    /* max-width: 18rem; */
 }
 
 .projects article p {
@@ -212,17 +213,33 @@ nav a {
     main {
         align-self: center;
         display: flex;
-        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .left-col {
-        flex: 0 1rem 0;
+    .col-left {
+        flex: 0 1 40rem;
+        margin: 0 2rem 0 0;
+    }
+
+    .col-right {
+        flex: 0 1 40rem;
     }
 
     .site-title {
         padding: 4rem 0 4rem 0;
         margin: 0;
     }
+
+    .projects article img {
+        /* height: 20rem;
+        width: 30rem; */
+    }
+
+    .overlay {
+        /* match width of article img */
+        /* max-width: 30rem; */
+    }
+    
 }
 
 /* Footer
