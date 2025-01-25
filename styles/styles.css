@@ -60,15 +60,11 @@ em {
 /* Elements
 --------------------------------------------- */
 ul {
-	padding: 0;
-    list-style-type: none;
-    display: flex;
-    gap: 0;
-    justify-content: space-evenly;
+    
 }
 
 ul li {
-    padding: 0.8rem;
+    list-style: none;
 }
 
 ol {
@@ -138,6 +134,20 @@ main {
 /* Header
 --------------------------------------------- */
 
+.bg-gradient {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.2),
+        rgba(0, 0, 0, 0) 50%
+    );
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
 .site-title h1 {
     margin: 0;
 }
@@ -148,13 +158,44 @@ main {
     color: #f0dee2;
 }
 
+nav ul {
+    position: fixed;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #313136;
+    padding: 1rem 0.8rem 0.8rem 0.8rem;
+    margin-top: 0;
+    width: 100%;
+    z-index: 1000; /* added because images were covering it */
+}
+
 nav a {
-    
     color: #f0dee2;
+    padding: 0.8rem;
+}
+
+@media (min-width: 50em) {
+
+    nav ul {
+        width: fit-content;
+    }
+
+    nav a {
+        font-size: 1.5rem;
+    }
 }
 
 /* Main
 --------------------------------------------- */
+
+
+/* this element uses js to fade on scroll */
+.cat-picture {
+    position: fixed;
+    width: 18rem;
+    z-index: -2;
+}
 
 .project-links {
     display: flex;
@@ -216,9 +257,15 @@ nav a {
         justify-content: center;
     }
 
+
     .col-left {
         flex: 0 1 40rem;
         margin: 0 2rem 0 0;
+        align-self: flex-start;
+        position: sticky;
+        top: 1rem;
+        display: flex;
+        flex-direction: column;
     }
 
     .col-right {
@@ -228,17 +275,30 @@ nav a {
     .site-title {
         padding: 4rem 0 4rem 0;
         margin: 0;
+        order: 1;
+    }
+    
+    .about-me {
+        order: 2;
+    }
+    
+    .cat-picture {
+        position: relative;
+        bottom: 10rem;
+        width: fit-content;
+        z-index: -2;
+        order: 3;
     }
 
-    .projects article img {
-        /* height: 20rem;
-        width: 30rem; */
+    /* .projects article img {
+        height: 20rem;
+        width: 30rem;
     }
 
     .overlay {
-        /* match width of article img */
-        /* max-width: 30rem; */
-    }
+        match width of article img */
+        max-width: 30rem;
+    } */
     
 }
 
@@ -246,12 +306,16 @@ nav a {
 --------------------------------------------- */
 footer {
     text-align: center;
-    margin: 0 0 3rem;
+}
+
+footer h3 {
+    text-align: center;
 }
 
 footer ul {
     display: flex;
-    margin: 0 auto;
+    padding: 0;
+    margin: 0 0 3rem;
     justify-content: space-evenly;
 }
 
@@ -279,4 +343,14 @@ footer a:hover {
 
 footer img {
     height: 4rem;
+}
+
+@media (min-width: 50em) {
+    footer a {
+        margin: 0 2rem;
+    }
+
+    footer ul {
+        justify-content: center;
+    }
 }
